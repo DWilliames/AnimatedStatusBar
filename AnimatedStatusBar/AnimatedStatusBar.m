@@ -53,10 +53,10 @@ CGFloat statusBarHeight;
     return sharedView;
 }
 
-SingletonImplementation(toggleStatusBar)
+SingletonImplementation(toggle)
 SingletonImplementation(toggleMessage)
-SingletonImplementation(hideStatusBar)
-SingletonImplementation(showStatusBar)
+SingletonImplementation(hide)
+SingletonImplementation(show)
 SingletonImplementation(hideMessage)
 SingletonImplementation(showMessage)
 SingletonImplementation(freeze)
@@ -122,13 +122,13 @@ SingletonImplementation(hideCustomView)
     else [self showMessage];
 }
 
-- (void)toggleStatusBar {
+- (void)toggle {
     if(self.isStatusBarHidden)
-        [self showStatusBar];
-    else [self hideStatusBar];
+        [self show];
+    else [self hide];
 }
 
-- (void)showStatusBar {
+- (void)show {
     NSLog(@"Show Status Bar");
     showing++;
     
@@ -142,7 +142,7 @@ SingletonImplementation(hideCustomView)
     }];
 }
 
-- (void)hideStatusBar {
+- (void)hide {
     NSLog(@"Hide Status Bar");
     hiding++;
     
@@ -164,7 +164,7 @@ SingletonImplementation(hideCustomView)
     
     NSLog(@"Show Message");
     if(!self.isStatusBarHidden || showing)
-        [self hideStatusBar];
+        [self hide];
     
     [UIView animateWithDuration:DURATION delay:0 usingSpringWithDamping:SPRING_DAMPING initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         view.center = CGPointMake(self.frame.size.width/2.0, STATUS_BAR_HEIGHT/2.0);
@@ -196,7 +196,7 @@ SingletonImplementation(hideCustomView)
     
     NSLog(@"Show Message");
     if(!self.isStatusBarHidden || showing)
-        [self hideStatusBar];
+        [self hide];
     
     self.messageDisplayed = YES;
     [UIView animateWithDuration:DURATION delay:0 usingSpringWithDamping:SPRING_DAMPING initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
@@ -210,7 +210,7 @@ SingletonImplementation(hideCustomView)
     
     NSLog(@"Hide Message");
     if(self.isStatusBarHidden || hiding)
-        [self showStatusBar];
+        [self show];
     
     self.messageDisplayed = NO;
     [UIView animateWithDuration:DURATION delay:0 usingSpringWithDamping:SPRING_DAMPING initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseIn animations:^{

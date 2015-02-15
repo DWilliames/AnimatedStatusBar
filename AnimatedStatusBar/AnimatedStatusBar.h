@@ -22,9 +22,9 @@
 
 + (AnimatedStatusBar*)sharedView;
 
-+ (void)showStatusBar;
-+ (void)hideStatusBar;
-+ (void)toggleStatusBar;
++ (void)show;
++ (void)hide;
++ (void)toggle;
 
 + (void)showMessage;
 + (void)showMessage:(NSString*)message;

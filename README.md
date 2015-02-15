@@ -6,19 +6,22 @@ Beautiful and simple implementation of animating and manipulating the iOS status
 
 Why is this implementation any better or different?
 - It uses a Singleton so that it can be used or referenced from any part of your code
-- It support all orientations
+- It support all devices orientations
 - Provides full customisability 
 
 ## Setup
 Firstly import the `AnimatedStatusBar.m` and `AnimatedStatusBar.h` files into your project. Then reference the `AnimatedStatusBar.h` file wherever you need it.
 
 **Important:** in your `Info.plist` file, add a new row with the key “View controller-based status bar appearance”, and makes sure it is set to “NO”. 
+![Plist addition](images/plist.png)
 **Also important:** if your app is iPhone only, add the following line of code. `[AnimatedStatusBar sharedView].iPhoneOnly = YES;`. If you do not do this then the animations will appear really weird if the app is ever run on an iPad.
 
 Then you are good to go! Most uses only take a single line of code... SO GOOD!
 
 ## Showing a Message
+![Status Bar message demo](images/statusBarMessage.gif)
 There are multiple methods for manipulating a message. The most common one is: 
+
 `+ (void)showMessage:(NSString*)message forDuration:(float)duration`
 
 Use it anywhere in your code like so...
@@ -72,7 +75,15 @@ To manipulate the status Bar, first freeze it, and reference it. (It is a subcla
 UIView* statusBar = [AnimatedStatusBar sharedView];
 [AnimatedStatusBar freeze];
 
-[UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:0.65 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+[UIView animateWithDuration:0.3 
+                      delay:0 
+     usingSpringWithDamping:0.65 
+      initialSpringVelocity:0 
+                    options:UIViewAnimationOptionCurveEaseIn 
+                 animations:^{
     statusBar.center = CGPointMake(self.view.frame.size.width/2.0, statusBar.center.y);
 }completion:nil];
 ```
+
+## License
+`AnimatedStatusBar` is released under the [MIT license](https://github.com/DWilliames/AnimatedStatusBar/blob/master/LICENSE).
