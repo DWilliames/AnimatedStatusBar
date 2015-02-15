@@ -1,0 +1,445 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		55385FFD1A8DA69C0041D257 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55385FFC1A8DA69C0041D257 /* main.m */; };
+		553860001A8DA69C0041D257 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 55385FFF1A8DA69C0041D257 /* AppDelegate.m */; };
+		553860031A8DA69C0041D257 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 553860021A8DA69C0041D257 /* ViewController.m */; };
+		553860061A8DA69C0041D257 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 553860041A8DA69C0041D257 /* Main.storyboard */; };
+		553860081A8DA69C0041D257 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 553860071A8DA69C0041D257 /* Images.xcassets */; };
+		5538600B1A8DA69C0041D257 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 553860091A8DA69C0041D257 /* LaunchScreen.xib */; };
+		553860171A8DA69C0041D257 /* AnimatedStatusBarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 553860161A8DA69C0041D257 /* AnimatedStatusBarTests.m */; };
+		5538602E1A9094400041D257 /* AnimatedStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5538602D1A9094400041D257 /* AnimatedStatusBar.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		553860111A8DA69C0041D257 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 55385FEF1A8DA69C0041D257 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 55385FF61A8DA69C0041D257;
+			remoteInfo = AnimatedStatusBar;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		55385FF71A8DA69C0041D257 /* AnimatedStatusBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimatedStatusBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		55385FFB1A8DA69C0041D257 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55385FFC1A8DA69C0041D257 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		55385FFE1A8DA69C0041D257 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		55385FFF1A8DA69C0041D257 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		553860011A8DA69C0041D257 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		553860021A8DA69C0041D257 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		553860051A8DA69C0041D257 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		553860071A8DA69C0041D257 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		5538600A1A8DA69C0041D257 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		553860101A8DA69C0041D257 /* AnimatedStatusBarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimatedStatusBarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		553860151A8DA69C0041D257 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		553860161A8DA69C0041D257 /* AnimatedStatusBarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimatedStatusBarTests.m; sourceTree = "<group>"; };
+		5538602C1A9094400041D257 /* AnimatedStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedStatusBar.h; sourceTree = "<group>"; };
+		5538602D1A9094400041D257 /* AnimatedStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedStatusBar.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		55385FF41A8DA69C0041D257 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5538600D1A8DA69C0041D257 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		55385FEE1A8DA69B0041D257 = {
+			isa = PBXGroup;
+			children = (
+				55385FF91A8DA69C0041D257 /* AnimatedStatusBar */,
+				553860131A8DA69C0041D257 /* AnimatedStatusBarTests */,
+				55385FF81A8DA69C0041D257 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		55385FF81A8DA69C0041D257 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				55385FF71A8DA69C0041D257 /* AnimatedStatusBar.app */,
+				553860101A8DA69C0041D257 /* AnimatedStatusBarTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		55385FF91A8DA69C0041D257 /* AnimatedStatusBar */ = {
+			isa = PBXGroup;
+			children = (
+				5538602B1A9094400041D257 /* AnimatedStatusBar */,
+				55385FFE1A8DA69C0041D257 /* AppDelegate.h */,
+				55385FFF1A8DA69C0041D257 /* AppDelegate.m */,
+				553860011A8DA69C0041D257 /* ViewController.h */,
+				553860021A8DA69C0041D257 /* ViewController.m */,
+				553860041A8DA69C0041D257 /* Main.storyboard */,
+				553860071A8DA69C0041D257 /* Images.xcassets */,
+				553860091A8DA69C0041D257 /* LaunchScreen.xib */,
+				55385FFA1A8DA69C0041D257 /* Supporting Files */,
+			);
+			path = AnimatedStatusBar;
+			sourceTree = "<group>";
+		};
+		55385FFA1A8DA69C0041D257 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				55385FFB1A8DA69C0041D257 /* Info.plist */,
+				55385FFC1A8DA69C0041D257 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		553860131A8DA69C0041D257 /* AnimatedStatusBarTests */ = {
+			isa = PBXGroup;
+			children = (
+				553860161A8DA69C0041D257 /* AnimatedStatusBarTests.m */,
+				553860141A8DA69C0041D257 /* Supporting Files */,
+			);
+			path = AnimatedStatusBarTests;
+			sourceTree = "<group>";
+		};
+		553860141A8DA69C0041D257 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				553860151A8DA69C0041D257 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5538602B1A9094400041D257 /* AnimatedStatusBar */ = {
+			isa = PBXGroup;
+			children = (
+				5538602C1A9094400041D257 /* AnimatedStatusBar.h */,
+				5538602D1A9094400041D257 /* AnimatedStatusBar.m */,
+			);
+			path = AnimatedStatusBar;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		55385FF61A8DA69C0041D257 /* AnimatedStatusBar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5538601A1A8DA69C0041D257 /* Build configuration list for PBXNativeTarget "AnimatedStatusBar" */;
+			buildPhases = (
+				55385FF31A8DA69C0041D257 /* Sources */,
+				55385FF41A8DA69C0041D257 /* Frameworks */,
+				55385FF51A8DA69C0041D257 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AnimatedStatusBar;
+			productName = AnimatedStatusBar;
+			productReference = 55385FF71A8DA69C0041D257 /* AnimatedStatusBar.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5538600F1A8DA69C0041D257 /* AnimatedStatusBarTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5538601D1A8DA69C0041D257 /* Build configuration list for PBXNativeTarget "AnimatedStatusBarTests" */;
+			buildPhases = (
+				5538600C1A8DA69C0041D257 /* Sources */,
+				5538600D1A8DA69C0041D257 /* Frameworks */,
+				5538600E1A8DA69C0041D257 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				553860121A8DA69C0041D257 /* PBXTargetDependency */,
+			);
+			name = AnimatedStatusBarTests;
+			productName = AnimatedStatusBarTests;
+			productReference = 553860101A8DA69C0041D257 /* AnimatedStatusBarTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		55385FEF1A8DA69C0041D257 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = davidwilliames;
+				TargetAttributes = {
+					55385FF61A8DA69C0041D257 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					5538600F1A8DA69C0041D257 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 55385FF61A8DA69C0041D257;
+					};
+				};
+			};
+			buildConfigurationList = 55385FF21A8DA69C0041D257 /* Build configuration list for PBXProject "AnimatedStatusBar" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 55385FEE1A8DA69B0041D257;
+			productRefGroup = 55385FF81A8DA69C0041D257 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				55385FF61A8DA69C0041D257 /* AnimatedStatusBar */,
+				5538600F1A8DA69C0041D257 /* AnimatedStatusBarTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		55385FF51A8DA69C0041D257 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				553860061A8DA69C0041D257 /* Main.storyboard in Resources */,
+				5538600B1A8DA69C0041D257 /* LaunchScreen.xib in Resources */,
+				553860081A8DA69C0041D257 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5538600E1A8DA69C0041D257 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		55385FF31A8DA69C0041D257 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				553860031A8DA69C0041D257 /* ViewController.m in Sources */,
+				553860001A8DA69C0041D257 /* AppDelegate.m in Sources */,
+				5538602E1A9094400041D257 /* AnimatedStatusBar.m in Sources */,
+				55385FFD1A8DA69C0041D257 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5538600C1A8DA69C0041D257 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				553860171A8DA69C0041D257 /* AnimatedStatusBarTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		553860121A8DA69C0041D257 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 55385FF61A8DA69C0041D257 /* AnimatedStatusBar */;
+			targetProxy = 553860111A8DA69C0041D257 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		553860041A8DA69C0041D257 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				553860051A8DA69C0041D257 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		553860091A8DA69C0041D257 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5538600A1A8DA69C0041D257 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		553860181A8DA69C0041D257 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		553860191A8DA69C0041D257 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5538601B1A8DA69C0041D257 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = AnimatedStatusBar/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5538601C1A8DA69C0041D257 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = AnimatedStatusBar/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5538601E1A8DA69C0041D257 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AnimatedStatusBarTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnimatedStatusBar.app/AnimatedStatusBar";
+			};
+			name = Debug;
+		};
+		5538601F1A8DA69C0041D257 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AnimatedStatusBarTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnimatedStatusBar.app/AnimatedStatusBar";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		55385FF21A8DA69C0041D257 /* Build configuration list for PBXProject "AnimatedStatusBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				553860181A8DA69C0041D257 /* Debug */,
+				553860191A8DA69C0041D257 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5538601A1A8DA69C0041D257 /* Build configuration list for PBXNativeTarget "AnimatedStatusBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5538601B1A8DA69C0041D257 /* Debug */,
+				5538601C1A8DA69C0041D257 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5538601D1A8DA69C0041D257 /* Build configuration list for PBXNativeTarget "AnimatedStatusBarTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5538601E1A8DA69C0041D257 /* Debug */,
+				5538601F1A8DA69C0041D257 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 55385FEF1A8DA69C0041D257 /* Project object */;
+}
