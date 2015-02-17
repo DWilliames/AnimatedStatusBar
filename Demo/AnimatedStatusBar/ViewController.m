@@ -8,80 +8,62 @@
 
 #import "ViewController.h"
 #import "AnimatedStatusBar.h"
+#import "ProgressView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface ViewController ()
-
+@property (nonatomic, strong) IBOutlet UIView *bgView;
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *singleTap;
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *doubleTap;
+@property (strong, nonatomic) IBOutlet UIPanGestureRecognizer *pan;
 @end
 
 @implementation ViewController
-
-UIView *sidePanel;
+@synthesize bgView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    sidePanel = [[UIView alloc]initWithFrame:self.view.frame];
-    sidePanel.center = CGPointMake(-self.view.frame.size.width/2.0, sidePanel.center.y);
-    sidePanel.backgroundColor = [UIColor darkGrayColor];
-    [self.view addSubview:sidePanel];
+    bgView.layer.shadowRadius = 8.0;
+    bgView.layer.shadowOpacity = 0.3;
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tap:)];
-    [self.view addGestureRecognizer:tap];
-    
-    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(pan:)];
-    [self.view addGestureRecognizer:pan];
+    [AnimatedStatusBar initialize];
+    [_singleTap requireGestureRecognizerToFail:_doubleTap];
 }
 
-- (void)tap:(UITapGestureRecognizer*)recognizer {
-    NSLog(@"Tap");
+- (IBAction)tap:(id)sender {
+    [AnimatedStatusBar setAnimationDuration:0.5 andSpringDamping:0.6];
     [AnimatedStatusBar showMessage:@"Updated 1 hour ago" forDuration:2.0];
 }
 
-- (void)pan:(UIPanGestureRecognizer*)recognizer {
-    
+- (IBAction)doubleTap:(id)sender {
+    ProgressView *customView = [[ProgressView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
+    [AnimatedStatusBar setAnimationDuration:0.75 andSpringDamping:0.8];
+    [AnimatedStatusBar showCustomView:customView];
+    [customView playLoadAnimation];
+}
+
+- (IBAction)pan:(id)sender {
     static CGPoint startPoint;
-    static BOOL isMovingBack;
-    static BOOL valid;
-    
     AnimatedStatusBar *statusBar = [AnimatedStatusBar sharedView];
+    UIGestureRecognizer *recognizer = (UIGestureRecognizer*)sender;
     
-    switch (recognizer.state) {
-        case UIGestureRecognizerStateBegan:
-        {
-            if(!isMovingBack && !statusBar.isMessageDisplayed){
-                [AnimatedStatusBar freeze];
-                startPoint = [recognizer locationInView:self.view];
-                valid = YES;
-            }
-            else valid = NO;
-        }
-            break;
-        case UIGestureRecognizerStateChanged:
-        {
-            if(valid){
-                CGPoint point = [recognizer locationInView:self.view];
-                CGFloat xDiff = point.x - startPoint.x;
-                statusBar.center = CGPointMake(self.view.frame.size.width/2.0 + xDiff, statusBar.center.y);
-                sidePanel.center = CGPointMake(-self.view.frame.size.width/2.0 + xDiff, sidePanel.center.y);
-            }
-        }
-            break;
-        case UIGestureRecognizerStateEnded:
-        {
-            if(valid){
-                isMovingBack = YES;
-                [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:0.65 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-                    statusBar.center = CGPointMake(self.view.frame.size.width/2.0, statusBar.center.y);
-                    sidePanel.center = CGPointMake(-self.view.frame.size.width/2.0, sidePanel.center.y);
-                }completion:^(BOOL finished){
-                    [AnimatedStatusBar unfreeze];
-                    isMovingBack = NO;
-                }];
-            }
-        }
-            break;
-        default:
-            break;
+    if(recognizer.state == UIGestureRecognizerStateBegan){
+        [AnimatedStatusBar freeze];
+        startPoint = [recognizer locationInView:self.view];
+    }
+    else if(recognizer.state == UIGestureRecognizerStateChanged){
+        CGFloat x = self.view.frame.size.width/2.0 + [recognizer locationInView:self.view].x - startPoint.x;
+        statusBar.center = CGPointMake(x, statusBar.center.y);
+        bgView.center = CGPointMake(x, bgView.center.y);
+    }
+    else if(recognizer.state == UIGestureRecognizerStateEnded){
+        [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:0.65 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+            statusBar.center = CGPointMake(self.view.frame.size.width/2.0, statusBar.center.y);
+            bgView.center = self.view.center;
+        }completion:^(BOOL finished){
+            [AnimatedStatusBar unfreeze];
+        }];
     }
 }
 

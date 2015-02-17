@@ -1,25 +1,27 @@
 # AnimatedStatusBar
 Beautiful and simple implementation of animating and manipulating the iOS status bar.
-- Hide/show the status bar with an animation
+- Hide/show the status bar with a customisable animation
 - Present messages or custom views in place of the status bar
 - Freeze the status bar to move it and manipulate it
 
 Why is this implementation any better or different?
 - It uses a Singleton so that it can be used or referenced from any part of your code
-- It support all devices orientations
+- It support all devices orientations (Landscape/Portrait)
 - Provides full customisability 
 
 ## Setup
-Firstly import the `AnimatedStatusBar.m` and `AnimatedStatusBar.h` files into your project. Then reference the `AnimatedStatusBar.h` file wherever you need it.
+Import the `AnimatedStatusBar.m` and `AnimatedStatusBar.h` files into your project. Then reference the `AnimatedStatusBar.h` file wherever you need it.
 
 **Important:** in your `Info.plist` file, add a new row with the key “View controller-based status bar appearance”, and makes sure it is set to “NO”. 
-![Plist addition](images/plist.png)
-**Also important:** if your app is iPhone only, add the following line of code. `[AnimatedStatusBar sharedView].iPhoneOnly = YES;`. If you do not do this then the animations will appear really weird if the app is ever run on an iPad.
+
+![Plist addition](Images/plist.png)
+
+>  **Also important:** if your app is iPhone only, add the following line of code. `[AnimatedStatusBar sharedView].iPhoneOnly = YES;`. If you do not do this then the animations will appear really weird if the app is ever run on an iPad.
 
 Then you are good to go! Most uses only take a single line of code... SO GOOD!
 
 ## Showing a Message
-![Status Bar message demo](images/statusBarMessage.gif)
+![Status Bar message demo](Images/statusBarMessage.gif)
 There are multiple methods for manipulating a message. The most common one is: 
 
 `+ (void)showMessage:(NSString*)message forDuration:(float)duration`

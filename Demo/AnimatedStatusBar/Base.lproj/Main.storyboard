@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,10 +15,77 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ncg-MZ-aP7">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Single Tap for Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GmO-Gg-xjm">
+                                        <rect key="frame" x="210" y="235" width="180" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.43880653380000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Double Tap for Custom View" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cF-Qv-5Oa">
+                                        <rect key="frame" x="191" y="264" width="219" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe to move 'Frozen' Status Bar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxl-K9-dlM">
+                                        <rect key="frame" x="167" y="293" width="267" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.76227009300000004" green="0.22755539420000001" blue="0.9895407557" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="GmO-Gg-xjm" firstAttribute="centerX" secondItem="1cF-Qv-5Oa" secondAttribute="centerX" id="HxI-af-GhW"/>
+                                    <constraint firstItem="cxl-K9-dlM" firstAttribute="top" secondItem="1cF-Qv-5Oa" secondAttribute="bottom" constant="8" symbolic="YES" id="eq9-8V-B68"/>
+                                    <constraint firstItem="GmO-Gg-xjm" firstAttribute="top" secondItem="Ncg-MZ-aP7" secondAttribute="top" constant="235" id="jrf-Uf-brA"/>
+                                    <constraint firstItem="1cF-Qv-5Oa" firstAttribute="top" secondItem="GmO-Gg-xjm" secondAttribute="bottom" constant="8" symbolic="YES" id="oe8-dp-UPM"/>
+                                    <constraint firstItem="1cF-Qv-5Oa" firstAttribute="centerX" secondItem="Ncg-MZ-aP7" secondAttribute="centerX" id="xuW-TX-cno"/>
+                                    <constraint firstItem="1cF-Qv-5Oa" firstAttribute="centerX" secondItem="cxl-K9-dlM" secondAttribute="centerX" id="yGs-cQ-n0Y"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="H6V-gr-nMo" appends="YES" id="NZk-eo-mbA"/>
+                                    <outletCollection property="gestureRecognizers" destination="QAW-k9-K4V" appends="YES" id="AT9-kk-ujm"/>
+                                    <outletCollection property="gestureRecognizers" destination="umX-Os-Het" appends="YES" id="ZlZ-3J-LbH"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ncg-MZ-aP7" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="3qm-bY-hRp"/>
+                            <constraint firstItem="Ncg-MZ-aP7" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="GYV-m1-Cqs"/>
+                            <constraint firstAttribute="trailing" secondItem="Ncg-MZ-aP7" secondAttribute="trailing" id="MxK-wZ-JfA"/>
+                            <constraint firstItem="Ncg-MZ-aP7" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="i3W-6v-ObE"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bgView" destination="Ncg-MZ-aP7" id="OWr-yB-0rD"/>
+                        <outlet property="doubleTap" destination="QAW-k9-K4V" id="NNP-Ir-fFP"/>
+                        <outlet property="pan" destination="umX-Os-Het" id="yVa-9Z-tQH"/>
+                        <outlet property="singleTap" destination="H6V-gr-nMo" id="SHP-Ot-ebP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer delaysTouchesBegan="YES" id="H6V-gr-nMo">
+                    <connections>
+                        <action selector="tap:" destination="vXZ-lx-hvc" id="Cgf-SY-6QA"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="QAW-k9-K4V">
+                    <connections>
+                        <action selector="doubleTap:" destination="vXZ-lx-hvc" id="oDS-fd-haM"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="umX-Os-Het">
+                    <connections>
+                        <action selector="pan:" destination="vXZ-lx-hvc" id="4Dc-iT-yLe"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
         </scene>
     </scenes>

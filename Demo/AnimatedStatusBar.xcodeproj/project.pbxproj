@@ -15,6 +15,7 @@
 		5538600B1A8DA69C0041D257 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 553860091A8DA69C0041D257 /* LaunchScreen.xib */; };
 		553860171A8DA69C0041D257 /* AnimatedStatusBarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 553860161A8DA69C0041D257 /* AnimatedStatusBarTests.m */; };
 		5538602E1A9094400041D257 /* AnimatedStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5538602D1A9094400041D257 /* AnimatedStatusBar.m */; };
+		5538606B1A9358DC0041D257 /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5538606A1A9358DC0041D257 /* ProgressView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		553860161A8DA69C0041D257 /* AnimatedStatusBarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimatedStatusBarTests.m; sourceTree = "<group>"; };
 		5538602C1A9094400041D257 /* AnimatedStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedStatusBar.h; sourceTree = "<group>"; };
 		5538602D1A9094400041D257 /* AnimatedStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedStatusBar.m; sourceTree = "<group>"; };
+		553860691A9358DC0041D257 /* ProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressView.h; sourceTree = "<group>"; };
+		5538606A1A9358DC0041D257 /* ProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,8 @@
 				55385FFF1A8DA69C0041D257 /* AppDelegate.m */,
 				553860011A8DA69C0041D257 /* ViewController.h */,
 				553860021A8DA69C0041D257 /* ViewController.m */,
+				553860691A9358DC0041D257 /* ProgressView.h */,
+				5538606A1A9358DC0041D257 /* ProgressView.m */,
 				553860041A8DA69C0041D257 /* Main.storyboard */,
 				553860071A8DA69C0041D257 /* Images.xcassets */,
 				553860091A8DA69C0041D257 /* LaunchScreen.xib */,
@@ -233,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				553860031A8DA69C0041D257 /* ViewController.m in Sources */,
+				5538606B1A9358DC0041D257 /* ProgressView.m in Sources */,
 				553860001A8DA69C0041D257 /* AppDelegate.m in Sources */,
 				5538602E1A9094400041D257 /* AnimatedStatusBar.m in Sources */,
 				55385FFD1A8DA69C0041D257 /* main.m in Sources */,

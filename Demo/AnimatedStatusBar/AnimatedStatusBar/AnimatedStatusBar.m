@@ -9,18 +9,15 @@
 #import "AnimatedStatusBar.h"
 
 #define STATUS_BAR_HEIGHT statusBarHeight
-#define SPRING_DAMPING 0.6
-#define DURATION 0.5
+#define SPRING_DAMPING self.springDamping
+#define DURATION self.duration
 
 @interface AnimatedStatusBar ()
 @property (nonatomic, strong) UIView *statusBarSnapshot;
 @property (nonatomic, strong) UIView *statusBarSnapshotContainer;
-
 @property (nonatomic, strong) UIView *lastPortraitStatusBarSnapshot;
 @property (nonatomic, strong) UIView *lastLandscapeStatusBarSnapshot;
-
 @property (nonatomic, strong) UIView *customView;
-
 @end
 
 @implementation AnimatedStatusBar
@@ -33,6 +30,7 @@
 @synthesize
 message = _message,
 frozenStatusBar = _frozenStatusBar,
+customViewDisplayed = _customViewDisplayed,
 iPhoneOnly = _iPhoneOnly;
 
 CGFloat viewWidth;
@@ -42,6 +40,10 @@ int showing = 0;
 CGFloat statusBarHeight;
 
 // SINGLETON METHODS
+
++ (void)initialize {
+    [AnimatedStatusBar sharedView];
+}
 
 + (AnimatedStatusBar*)sharedView {
     
@@ -67,12 +69,21 @@ SingletonImplementation(hideCustomView)
     [[AnimatedStatusBar sharedView] showCustomView:view];
 }
 
++ (void)showCustomView:(UIView *)view forDuration:(float)duration {
+    [[AnimatedStatusBar sharedView] showCustomView:view forDuration:duration];
+}
+
 + (void)showMessage:(NSString *)message {
     [[AnimatedStatusBar sharedView] showMessage:message];
 }
 
 + (void)showMessage:(NSString *)message forDuration:(float)duration {
     [[AnimatedStatusBar sharedView] showMessage:message forDuration:duration];
+}
+
++ (void)setAnimationDuration:(float)duration andSpringDamping:(float)damping {
+    [AnimatedStatusBar sharedView].duration = duration;
+    [AnimatedStatusBar sharedView].springDamping = damping;
 }
 
 // PRIVATE METHODS
@@ -84,8 +95,12 @@ SingletonImplementation(hideCustomView)
     if(self = [super init]) {
         self.frame = CGRectMake(0, 0, viewWidth, STATUS_BAR_HEIGHT);
         self.clipsToBounds = YES;
-        NSLog(@"Device: %@", [UIDevice currentDevice].model);
-        [[[[[UIApplication sharedApplication] delegate] window] rootViewController].view addSubview:self];
+        
+        self.duration = 0.5;
+        self.springDamping = 0.6;
+        
+        UIViewController *vc = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
+        [vc.view addSubview:self];
         
         self.statusBarSnapshotContainer = [[UIView alloc]initWithFrame:CGRectMake(0, 0, viewWidth, STATUS_BAR_HEIGHT)];
         [self addSubview:self.statusBarSnapshotContainer];
@@ -135,7 +150,7 @@ SingletonImplementation(hideCustomView)
     [UIView animateWithDuration:DURATION delay:0 usingSpringWithDamping:SPRING_DAMPING initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         self.statusBarSnapshotContainer.frame = CGRectMake(0, 0, viewWidth, STATUS_BAR_HEIGHT);
     }completion:^(BOOL finished){
-        if(hiding == 0){
+        if(hiding == 0 && !self.isStatusBarFrozen){
             [self shouldHideStatusBar:NO];
         }
         showing--;
@@ -146,8 +161,10 @@ SingletonImplementation(hideCustomView)
     NSLog(@"Hide Status Bar");
     hiding++;
     
-    [self snapshotStatusBar];
-    [self shouldHideStatusBar:YES];
+    if(!self.isStatusBarFrozen){
+        [self snapshotStatusBar];
+        [self shouldHideStatusBar:YES];
+    }
     
     [UIView animateWithDuration:DURATION delay:0 usingSpringWithDamping:SPRING_DAMPING initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         self.statusBarSnapshotContainer.frame = CGRectMake(0, -STATUS_BAR_HEIGHT, viewWidth, STATUS_BAR_HEIGHT);
@@ -157,15 +174,19 @@ SingletonImplementation(hideCustomView)
 }
 
 - (void)showCustomView:(UIView*)view {
+    if(self.isCustomViewDisplayed || self.isMessageDisplayed)
+        return;
+    
     self.customView = view;
     
     [self addSubview:view];
     view.center = CGPointMake(self.frame.size.width/2.0, STATUS_BAR_HEIGHT/2.0 + view.frame.size.height);
     
-    NSLog(@"Show Message");
+    NSLog(@"Show Custom View");
     if(!self.isStatusBarHidden || showing)
         [self hide];
     
+    _customViewDisplayed = YES;
     [UIView animateWithDuration:DURATION delay:0 usingSpringWithDamping:SPRING_DAMPING initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         view.center = CGPointMake(self.frame.size.width/2.0, STATUS_BAR_HEIGHT/2.0);
     }completion:nil];
@@ -173,9 +194,33 @@ SingletonImplementation(hideCustomView)
 }
 
 - (void)hideCustomView {
+    if(!self.customView || !self.isCustomViewDisplayed)
+        return;
+    
+    NSLog(@"Hide Custom View");
+    if(self.isStatusBarHidden || hiding)
+        [self show];
+    
+     self.customViewDisplayed = NO;
     [UIView animateWithDuration:DURATION delay:0 usingSpringWithDamping:SPRING_DAMPING initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-       self.customView.center = CGPointMake(self.frame.size.width/2.0, STATUS_BAR_HEIGHT/2.0 + self.customView.frame.size.height);
+        self.customView.center = CGPointMake(self.frame.size.width/2.0, STATUS_BAR_HEIGHT/2.0 + self.customView.frame.size.height);
     }completion:nil];
+}
+
+- (void)showCustomView:(UIView*)view forDuration:(float)duration {
+    if(self.isCustomViewDisplayed)
+        return;
+    [self showCustomView:view];
+    [self performSelector:@selector(hideCustomView) withObject:nil afterDelay:duration];
+}
+
+- (void)setCustomViewDisplayed:(BOOL)customViewDisplayed {
+    if(customViewDisplayed && !_customViewDisplayed){
+        [self hideCustomView];
+    } else if(!customViewDisplayed && _customViewDisplayed && self.customView){
+        [self showCustomView:self.customView];
+    }
+    _customViewDisplayed = customViewDisplayed;
 }
 
 - (void)showMessage:(NSString*)message forDuration:(float)duration {
@@ -191,7 +236,7 @@ SingletonImplementation(hideCustomView)
 }
 
 - (void)showMessage {
-    if(self.isMessageDisplayed)
+    if(self.isMessageDisplayed || self.isCustomViewDisplayed)
         return;
     
     NSLog(@"Show Message");
@@ -250,19 +295,21 @@ SingletonImplementation(hideCustomView)
 }
 
 - (void)freeze {
-    self.frozenStatusBar = YES;
+    if(!self.isStatusBarFrozen)
+        self.frozenStatusBar = YES;
 }
 
 - (void)unfreeze {
-    self.frozenStatusBar = NO;
+    if(self.isStatusBarFrozen)
+        self.frozenStatusBar = NO;
 }
 
 - (void)setFrozenStatusBar:(BOOL)frozenStatusBar {
     _frozenStatusBar = frozenStatusBar;
-    if(_frozenStatusBar){
+    if(_frozenStatusBar && !self.isStatusBarHidden){
         [self snapshotStatusBar];
         [self shouldHideStatusBar:YES];
-    } else {
+    } else if(!_frozenStatusBar && self.isStatusBarHidden && !self.isMessageDisplayed && !self.isCustomViewDisplayed){
         [self.statusBarSnapshot removeFromSuperview];
         [self shouldHideStatusBar:NO];
     }
@@ -280,6 +327,8 @@ SingletonImplementation(hideCustomView)
     self.statusBarHidden = hidden;
     if(!hidden)
         [self.statusBarSnapshot removeFromSuperview];
+    if(self.isiPhoneOnly)
+        hidden = YES;
     NSLog(@"Should Hide Status bar: %@", hidden ? @"YES" : @"NO");
     [[UIApplication sharedApplication] setStatusBarHidden:hidden withAnimation:UIStatusBarAnimationNone];
 }
@@ -291,10 +340,16 @@ SingletonImplementation(hideCustomView)
     self.frame = CGRectMake(0, 0, viewWidth, STATUS_BAR_HEIGHT);
     self.statusBarSnapshotContainer.frame = CGRectMake(0, self.statusBarSnapshotContainer.frame.origin.y, viewWidth, STATUS_BAR_HEIGHT);
     self.messageLabel.frame = CGRectMake(0, self.messageLabel.frame.origin.y, viewWidth, STATUS_BAR_HEIGHT);
+    
+    if(self.customView)
+        self.customView.center = CGPointMake(viewWidth/2.0, self.customView.center.y);
 }
 
 - (void)deviceOrientationDidChangeNotification:(NSNotification*)note
 {
+    if(!self.isStatusBarHidden && !self.isiPhoneOnly)
+        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
+    
     UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
     switch (orientation)
     {
@@ -306,7 +361,7 @@ SingletonImplementation(hideCustomView)
             else if(self.lastPortraitStatusBarSnapshot)
                 [self setSnapshot:self.lastPortraitStatusBarSnapshot];
             else [self setSnapshot:nil];
-
+            
             NSLog(@"PORTRAIT! - %f wide", self.superview.frame.size.width);
             [self updateToFitWidth];
         }
